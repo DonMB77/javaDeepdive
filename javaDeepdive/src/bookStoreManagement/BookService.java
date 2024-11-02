@@ -43,4 +43,22 @@ public class BookService {
         }
         return returnBooks;
     }
+
+    public static Book[] filterBooksAfterSpecifiedYear (int yearFromInclusivity, Book[] books) {
+        int arrayCounts = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].publishingYear >= yearFromInclusivity) {
+                ++arrayCounts;
+            }
+        }
+        Book[] returnBooks = new Book[arrayCounts];
+        int index = 0;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].publishingYear >= yearFromInclusivity) {
+                returnBooks[index] = books[i];
+                index++;
+            }
+        }
+        return returnBooks;
+    }
 }

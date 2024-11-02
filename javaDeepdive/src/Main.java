@@ -22,21 +22,29 @@ public class Main {
 
         // book array for testing of BookService.filterBooksByAuthor()
         Book book1 = new Book(1, "book1", authorTestSet, publisher1, 1999, 60, BigDecimal.valueOf(20.00), CoverType.HARDCOVER);
-        Book book2 = new Book(1, "book1", authorTestSet2, publisher1, 1999, 60, BigDecimal.valueOf(20.00), CoverType.HARDCOVER);
-        Book book3 = new Book(1, "book1", authorTestSet, publisher2, 1999, 60, BigDecimal.valueOf(20.00), CoverType.HARDCOVER);
+        Book book2 = new Book(1, "book1", authorTestSet2, publisher1, 1998, 60, BigDecimal.valueOf(20.00), CoverType.HARDCOVER);
+        Book book3 = new Book(1, "book1", authorTestSet, publisher2, 2000, 60, BigDecimal.valueOf(20.00), CoverType.HARDCOVER);
         Book[] testBooksArray = {book1, book2, book3};
 
-        Book[] bookFilteredByAuthor = BookService.filterBooksByAuthor(author1, testBooksArray);
+        Book[] booksFilteredByAuthor = BookService.filterBooksByAuthor(author1, testBooksArray);
         System.out.println("Books filtered by author:");
-        for (Book book : bookFilteredByAuthor) {
+        for (Book book : booksFilteredByAuthor) {
             System.out.println(book.toString());
         }
 
         System.out.println("\n");
 
-        Book[] bookFilteredByPublisher = BookService.filterBooksByPublisher(publisher1, testBooksArray);
+        Book[] booksFilteredByPublisher = BookService.filterBooksByPublisher(publisher1, testBooksArray);
         System.out.println("Books filtered by publisher:");
-        for (Book book : bookFilteredByPublisher) {
+        for (Book book : booksFilteredByPublisher) {
+            System.out.println(book.toString());
+        }
+
+        System.out.println("\n");
+
+        Book[] booksFilteredByPublishingYearInclusive = BookService.filterBooksAfterSpecifiedYear(1999, testBooksArray);
+        System.out.println("Books filtered by publishing year:");
+        for (Book book : booksFilteredByPublishingYearInclusive) {
             System.out.println(book.toString());
         }
     }
