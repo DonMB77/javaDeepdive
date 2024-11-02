@@ -16,6 +16,7 @@ public class Book {
 
     public Book (int id, String name, Author[] authors, Publisher publisher, int publishingYear, int amountOfPages, BigDecimal price, CoverType coverType) {
         this.id = id;
+        this.name = name;
         this.authors = authors;
         this.publisher = publisher;
         this.publishingYear = publishingYear;
