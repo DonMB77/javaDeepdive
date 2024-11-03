@@ -19,4 +19,12 @@ public class Present {
         }
         return returnSweets;
     }
+
+    public static float calculateTotalWeight(Sweet[] sweets) {
+        float weightSum = 0;
+        for (Sweet sweet : sweets) {
+            weightSum += sweet.weight;
+        }
+        return weightSum;
+    }
 }

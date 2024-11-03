@@ -19,5 +19,10 @@ public class Main {
         for (Sweet sweet : sweetsfilteredBySugarRange) {
             System.out.println(sweet.toString());
         }
+
+        // test case for calculateTotalWeight()
+        System.out.println("Calculate total weight:");
+        double sweetsTotalWeight = Present.calculateTotalWeight(sweetsTestArray1);
+        System.out.println(sweetsTotalWeight);
     }
 }
