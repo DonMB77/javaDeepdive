@@ -27,4 +27,13 @@ public class Present {
         }
         return weightSum;
     }
+
+    public static Sweet[] addSweet(Sweet[] sweets, Sweet sweet) {
+        Sweet[] newSweetsArray = new Sweet[sweets.length+1];
+        for (int i = 0; sweets.length > i; i++) {
+            newSweetsArray[i] = sweets[i];
+        }
+        newSweetsArray[newSweetsArray.length-1] = sweet;
+        return newSweetsArray;
+    }
 }
