@@ -17,7 +17,7 @@ public class MapDemo {
 
         // iterate over map keys
         System.out.println("Iterating over map keys: ");
-        for (Integer key: map.keySet()) {
+        for (Integer key : map.keySet()) {
             System.out.println(key);
         }
 
@@ -30,5 +30,10 @@ public class MapDemo {
         // getOrDefaultDemo using our prior map:
         System.out.println("getOrDefault method using key 4: " + map.getOrDefault(4, "Value does exist, even if its null, therefore default won't be triggered."));
         System.out.println("getOrDefault method using key 5: " + map.getOrDefault(5, "defaultValue gets printed"));
+
+        // putIfAbsent:
+        map.putIfAbsent(4, "four"); // replacing the null entry in our map
+        System.out.println("After we called putOfAbsent for key 4: " + map.get(4));
+        
     }
 }
