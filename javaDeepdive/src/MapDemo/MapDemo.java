@@ -34,6 +34,6 @@ public class MapDemo {
         // putIfAbsent:
         map.putIfAbsent(4, "four"); // replacing the null entry in our map
         System.out.println("After we called putOfAbsent for key 4: " + map.get(4));
-        
+
     }
 }
