@@ -22,6 +22,6 @@ public class TreeMapDemo {
         System.out.println("Sorted treeMap: " + treeMap);
         System.out.println("Descending order: " + treeMap.descendingMap());
 
-        
+
     }
 }
