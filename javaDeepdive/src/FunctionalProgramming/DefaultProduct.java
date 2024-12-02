@@ -10,7 +10,7 @@ public class DefaultProduct implements ProductInterface {
     public DefaultProduct(int id, String productName, String categoryName, double price) {
         this.id = id;
         this.price = price;
-        this.categoryName = categoryName;
+        this.productName = productName;
         this.categoryName = categoryName;
     }
 
