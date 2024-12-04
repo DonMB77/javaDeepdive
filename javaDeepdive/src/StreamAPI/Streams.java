@@ -3,6 +3,8 @@ package StreamAPI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Streams {
@@ -18,10 +20,12 @@ public class Streams {
         ));
 
         //create a stream
-        List<Product> modifiedProducts = productList.stream().filter(product -> product.getItemsInWarehouse() > 300).map(product -> {
-            product.setPrice(product.getPrice() - (product.getPrice() * 0.10));
-            return product;
-        }).collect(Collectors.toList());
+        List<Product> modifiedProducts = productList.stream()
+                .filter(product -> product.getItemsInWarehouse() > 300)
+                .map(product -> {
+                    product.setPrice(product.getPrice() - (product.getPrice() * 0.10));
+                    return product;
+                }).collect(Collectors.toList());
 
         modifiedProducts.stream().forEach(System.out::println);
 
@@ -44,6 +48,32 @@ public class Streams {
         ));
 
         List<Warehouse> warehousesList = new ArrayList<>(Arrays.asList(warehouse1, warehouse2, warehouse3));
+
+        Product[] productsArray = warehousesList.stream()
+                .flatMap(warehouse -> warehouse.getProducts().stream())
+                .filter(product -> product.getItemsInWarehouse() > 300)
+                .map(product -> {
+                    product.setPrice(product.getPrice() - (product.getPrice() * 0.10));
+                    return product;
+                }).toArray(Product[]::new); //with only toArray() we would get an array of Objects not Product specifically.
+
+        Arrays.stream(productsArray).forEach(System.out::println);
+
+        System.out.println("///////");
+        System.out.println("\n");
+        System.out.println("toMap(): ");
+        Map<String, Product> productMap = productList.stream()
+                .collect(Collectors.toMap(Product::getName, Function.identity()));
+
+        System.out.println(productMap);
+
+        System.out.println("///////");
+        System.out.println("\n");
+        System.out.println("mapToInt() & sum(): ");
+        int totalAmountOfItems = productList.stream()
+                .mapToInt(product -> product.getItemsInWarehouse())
+                .sum();
+        System.out.println("Amount of items in warehouse: " + totalAmountOfItems);
     }
 }
 
