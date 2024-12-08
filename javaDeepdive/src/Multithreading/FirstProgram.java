@@ -1,4 +1,4 @@
-package Multithreating;
+package Multithreading;
 
 public class FirstProgram extends Thread{
 
