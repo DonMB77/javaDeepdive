@@ -11,8 +11,8 @@ public class InvokeAllReview {
         ExecutorService executorService = Executors.newCachedThreadPool();
         ArrayList<Callable<String>> tasks = new ArrayList<>(Arrays.asList(
                 () -> "task 1",
-                () -> "task 1",
-                () -> "task 1"
+                () -> "task 2",
+                () -> "task 3"
                 ));
 
         List<Future<String>> futureList = executorService.invokeAll(tasks);
