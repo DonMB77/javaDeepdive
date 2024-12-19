@@ -20,6 +20,7 @@ public class ReviewClass11 {
 
         System.out.println(future.get());
 
+        // the error in this block is purposefully implemented as an example. No fix needed.
         CompletableFuture<Integer> future2 = CompletableFuture.supplyAsync(() -> {
             int i = 5;
             i /= 0;
