@@ -17,7 +17,7 @@ public class SemaphoreReview {
 
         System.out.println("AvailablePermitsForLogin: " + demo.availablePermitsForLogin());
         demo.tryLogin();
-        
+
         demo.logout();
         System.out.println("AvailablePermitsForLogin: " + demo.availablePermitsForLogin());
     }
